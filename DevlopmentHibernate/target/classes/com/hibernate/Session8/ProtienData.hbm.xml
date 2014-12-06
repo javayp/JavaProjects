@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 28, 2014 10:52:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hibernate.Session8.ProtienData" table="PROTIENDATA">
+        <id name="protienid" type="int">
+            <column name="PROTIENID" />
+  				<generator class="foreign">
+  					<param name="property">user</param>
+  				</generator>
+        </id>
+        <property name="goal" type="int">
+            <column name="GOAL" />
+        </property>
+        <property name="total" type="int">
+            <column name="TOTAL" />
+        </property>
+        <one-to-one name="user" class="com.hibernate.Session8.User" constrained="true"/>
+    </class>
+</hibernate-mapping>

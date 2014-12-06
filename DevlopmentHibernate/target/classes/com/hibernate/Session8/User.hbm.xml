@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 28, 2014 10:52:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hibernate.Session8.User" table="USER">
+        <id name="userId" type="int">
+            <column name="USERID" />
+            <generator class="increment" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <list name="proteinData" inverse="false" table="PROTIENDATA" lazy="true" cascade="save-update">
+            <key>
+                <column name="USERID" />
+            </key>
+            <list-index column="POSITION"/>
+            <one-to-one class="com.hibernate.Session8.ProtienData"/>
+        </list>
+        <map name="personMap" table="USERHISTORY" lazy="true" cascade="save-update">
+            <key>
+                <column name="USERID" />
+            </key>
+            <map-key type="java.lang.String"/>
+            <one-to-many class="com.hibernate.Session8.UserHistory" />
+        </map>
+    </class>
+</hibernate-mapping>

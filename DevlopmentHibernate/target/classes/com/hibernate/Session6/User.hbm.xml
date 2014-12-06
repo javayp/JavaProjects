@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 23, 2014 11:32:46 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping auto-import="false">
+	<class name="com.hibernate.Session6.User" table="users_table">
+		<id name="id" type="int" column="ID">
+			<generator class="increment"/>
+		</id>
+		<property name="name" type="java.lang.String" column="NAME" />
+		<idbag name="userhistory" table="user_histroy">
+			<collection-id type="int" column="collection_id">
+				<generator class="increment" />
+			</collection-id>
+			<key column="ID" />
+			<composite-element class="com.hibernate.Session6.UserHistory">
+				<property name="entry_time" type="java.util.Date" column="ENTRY_TIME" />
+				<property name="entry" type="java.lang.String" column="ENTRY" />
+			</composite-element>
+		</idbag>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+	<!--Session1  -->
+	<bean id="demoApp" class="com.spring1.session1.Demo" />
+	
+	<!--Session2  -->
+	<bean id="constrcutorDemo" class="com.spring2.session2.Constructors2.ConstructorDemo">
+		<!-- <constructor-arg value="25" type="int" index="1" />
+		<constructor-arg value="prashanth" type="java.lang.String" index="2"/> -->
+		
+		<constructor-arg name="id" value="25"></constructor-arg>
+		<constructor-arg name="name" value="prashanth"></constructor-arg>
+	</bean>
+	
+	<!--Session3-->
+	<bean id="propertiesDemo" class="com.spring3.Session3.BeanProperties3.Demo">
+		<property name="id" value="25"/>
+		<property name="name" value="prashanth"/>
+	</bean>
+	
+	<bean id="extraDemoRef" class="com.spring3.Session3.BeanProperties3.ExtraDemo">
+		<constructor-arg name="pid" value="55"/>
+		<constructor-arg name="pname" value="prashanth"/>
+		<constructor-arg name="extra" ref="extraclssRef"/>
+	</bean>
+	
+	<bean id="extraclssRef" class="com.spring3.Session3.BeanProperties3.ExtraClass">
+		<constructor-arg name="id" value="25"/>
+		<constructor-arg name="name" value="prashanth"/>
+	</bean>
+	
+	<!--Session4-->
+	<bean id="refDeoendencyInjectionMode" class="com.spring4.Session4.DIref.Demo">
+		<property name="id" value="25"/>
+		<property name="name" value="prashanth"/>
+		<property name="extrvariable" ref="extraclassDependencyInjection"/>
+	</bean>
+	
+	<bean id="extraclassDependencyInjection" class="com.spring4.Session4.DIref.ExtraClass">
+		<property name="extraId" value="35"/>
+		<property name="extraName" value="me after 10 years"/>
+	</bean>
+	
+	<!-- Session5-->
+	<bean id="singelton_prototype" lazy-init="false" class="com.spring5.Session5.SingeltonPrototype.Person" scope="prototype">
+		<property name="id" value="55"/>
+		<property name="name" value="dad"/>
+	</bean>
+	 
+	<!--Session6-->
+	<bean id="initANDdestroy" class="com.spring6.Session6.intiANDdestroy.Person" init-method="onCreate" destroy-method="onDestroy" scope="prototype">
+		<property name="id" value="25"/>
+		<property name="name" value="prashanth"/>
+	</bean>
+	
+	<!--Session7 -->
+	<bean id="factoryMethod" class="com.Spring7.FactoryMethod7.Person" factory-method="getInstance" factory-bean="personFactory">
+		<constructor-arg name="id" value="35"/>
+		<constructor-arg name="name" value="prashanth"/>
+	</bean>
+	
+	<bean id="personFactory" class="com.Spring7.FactoryMethod7.PersonFactory"/>
+</beans>

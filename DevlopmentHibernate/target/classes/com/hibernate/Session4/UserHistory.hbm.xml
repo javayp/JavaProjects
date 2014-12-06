@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 22, 2014 12:28:39 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping auto-import="false">
+	<class name="com.hibernate.Session4.User" table="users">
+		<id name="id" type="int" column="ID">
+			<generator class="assigned"/>
+		</id>
+		<property name="name" type="java.lang.String" column="NAME"/>
+		<component name="protienData">
+			<property name="goal" type="int" column="GOAL"/>
+			<property name="total" type="int" column="TOATAL"/>
+		</component>
+		 <list name="userHistory"  table="USER_HISTORY">
+		 	<key column="ID"/>
+		 	<list-index column="POSITION"/>
+		 	<composite-element class="com.hibernate.Session4.UserHistory">
+		 		<property name="entry_time" type="date" column="ENTRY_DATE"/>
+       			<property name="entry" type="java.lang.String" column="ENTRY"/>
+		 	</composite-element>
+		 </list>
+	</class>
+</hibernate-mapping>
+

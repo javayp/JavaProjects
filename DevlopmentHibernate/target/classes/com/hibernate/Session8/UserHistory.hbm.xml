@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 28, 2014 10:52:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hibernate.Session8.UserHistory" table="USERHISTORY">
+        <id name="userHistoryId" type="int">
+            <column name="USERHISTORYID" />
+            <generator class="assigned" />
+        </id>
+        <property name="entry_time" type="java.util.Date">
+            <column name="ENTRY_TIME" />
+        </property>
+        <many-to-one name="user" class="com.hibernate.Session8.User" column="USERID"/>
+    </class>
+</hibernate-mapping>

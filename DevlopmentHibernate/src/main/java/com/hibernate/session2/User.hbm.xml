@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 21, 2014 10:55:14 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping auto-import="false">
+    <class name="com.hibernate.session2.User" table="users">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+       
+        <component name="protienData">
+        	<property name="goal" column="GOAL" type="int" />
+        	<property name="total" column="TOTAL" type="int"/> 
+        </component>
+    </class>
+</hibernate-mapping>
