@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ControllerPoint {
@@ -11,6 +12,14 @@ public class ControllerPoint {
 	public String greetings(Model model){
 		model.addAttribute("greeting", "Greetings From Controller");
 		return "hello";
+	} 
+	
+	//Below method shows alternative way of returning the view
+	@RequestMapping(value="/alternteview")
+	public ModelAndView alternate(){
+		ModelAndView model=new ModelAndView("alternate");
+		model.addObject("alternateview","Hello i am alternate view");
+		return model;
 	} 
 	
 	//in the below method we are using the new annotation called path variable which is in-turn used to represent the user input.

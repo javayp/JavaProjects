@@ -8,6 +8,7 @@
 
 	<mvc:annotation-driven />
 	<context:component-scan base-package="com.fit.Controller" />
+	<context:component-scan base-package="com.fit.controllerTest" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
