@@ -13,7 +13,7 @@
 		<!--     	UserForm Name of the model attribute under which the form object is exposed. Defaults to 'command' -->
 		<form:form  commandName="userForm">
 			<table border="0">
-				<tr>
+			<tr>
 					<td colspan="2" align="center"><h2>Spring MVC Form Demo -
 							Registration</h2></td>
 				</tr>

@@ -19,4 +19,4 @@ public class FeedBackController {
 		model.addAttribute("sumittedvalue","name="+name+" "+"age="+age);
 		return "submission";
 	}
-}
+} 
