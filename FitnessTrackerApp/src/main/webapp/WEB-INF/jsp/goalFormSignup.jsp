@@ -5,32 +5,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SignUp Form</title>
+<title>Goal Signup</title>
+<style>
+	.error{
+		color:#ff0000;
+		border:1px solid #ff000;
+	}
+</style>
 </head>
 <body>
-	<form:form method="POST" action="/FitnessTracker/signupCompleted" commandName="SignupData">
+	<form:form method="POST" commandName="signup">
 		<table>
 			<tr>
-				<td>EmployeeId</td>
-				<td><form:input  path="id"/>
+				<td>Goal</td>
+				<td><form:input path="goal" cssErrorClass="error"/></td>
+	
 			</tr>
 			<tr>
 				<td>FirstName</td>
-				<td><form:input path="firstname"/>
+				<td><form:input path="firstName" cssErrorClass="error"/></td>
 			</tr>
 			<tr>
 				<td>LastName</td>
-				<td><form:input path="lastname"/>
-			</tr><tr>
-				<td>PhoneNumber</td>
-				<td><form:input path="phoneNumber"/>
+				<td><form:input path="lastName" cssErrorClass="error"/></td>
 			</tr>
 			<tr>
-				<td>Profession</td>
-				<td>
-				</td>
+				<td>Date</td>
+				<td><form:input path="dateEntry" cssErrorClass="error"/></td>
 			</tr>
-			<br/>
+			
+			 <tr>
+				<td>Profession</td>
+				<td><form:select path="Department" multiple="" items="${designations}" /></td>
+			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit" value="register"></td>
 			</tr>
